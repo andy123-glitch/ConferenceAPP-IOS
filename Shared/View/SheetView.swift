@@ -12,7 +12,7 @@ struct SheetView: View {
     
     var body: some View {
         ZStack {
-            Color(red: 0.93, green: 0.91, blue: 0.95)
+            Color(red: 238/255, green: 234/255, blue: 238/255)
                 .ignoresSafeArea()
             VStack{
                 HStack{
@@ -28,7 +28,7 @@ struct SheetView: View {
                         }label: {
                             Label("Map",systemImage: "map")
                         }.buttonStyle(.bordered)
-                    }.padding()
+                    }.padding(.leading,40)
                     Spacer()
                 }.padding()
                 
@@ -37,21 +37,26 @@ struct SheetView: View {
                     Text("56 participants")
                     Button{}label: {
                         Text("Check in/Check out")
-                    }.buttonStyle(.bordered)
-                }.frame(width: 250)
-                    .background(Color.gray)
+                    }.buttonStyle(.borderedProminent)
+                        .padding()
+                }.frame(width: 300)
+                    .background(Color(red: 183/255, green: 183/255, blue: 183/255))
                     .foregroundColor(.white)
                     .cornerRadius(12)
                     .padding()
+
                 
                 NavigationView {
-                    List{
+                    List {
                         ForEach(1..<15) { i in
-                            Text("sfdsfgg")
+                            Text("Andy,Azerot,22 ans")
                         }
-                        
-                        .navigationTitle("Liste des participants")
+                        .listRowBackground(Color(red: 238/255, green: 234/255, blue: 238/255))
                     }
+                    .listStyle(.plain)
+                    
+                    .background(Color(red: 238/255, green: 234/255, blue: 238/255))
+                    .navigationTitle("Liste des participants")
                 }
             }
             
