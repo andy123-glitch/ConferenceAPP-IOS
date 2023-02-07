@@ -24,8 +24,9 @@
 		AF541A89297ED5880016C429 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF541A88297ED5880016C429 /* MainView.swift */; };
 		AF541A8B297EDE1C0016C429 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF541A8A297EDE1C0016C429 /* RowView.swift */; };
 		E241FB792992A75600076F3A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E241FB782992A75600076F3A /* User.swift */; };
-		E241FB7B2992A89D00076F3A /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = E241FB7A2992A89D00076F3A /* File.swift */; };
 		E241FB7D2992A91E00076F3A /* ConferenceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E241FB7C2992A91E00076F3A /* ConferenceViewModel.swift */; };
+		E241FB7F2992AA1600076F3A /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E241FB7E2992AA1600076F3A /* Cafe.swift */; };
+		E241FB822992AB3300076F3A /* ConferenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E241FB812992AB3300076F3A /* ConferenceService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,8 +66,9 @@
 		AF541A88297ED5880016C429 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		AF541A8A297EDE1C0016C429 /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
 		E241FB782992A75600076F3A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		E241FB7A2992A89D00076F3A /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		E241FB7C2992A91E00076F3A /* ConferenceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceViewModel.swift; sourceTree = "<group>"; };
+		E241FB7E2992AA1600076F3A /* Cafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cafe.swift; sourceTree = "<group>"; };
+		E241FB812992AB3300076F3A /* ConferenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,7 +117,7 @@
 		AF541A44297ED4BF0016C429 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				E241FB772992A72100076F3A /* ViewModel */,
+				E241FB802992AB1D00076F3A /* Services */,
 				E241FB762992A71800076F3A /* Model */,
 				AF541A81297ED4E40016C429 /* View */,
 				AF541A45297ED4BF0016C429 /* ProjetApp.swift */,
@@ -179,17 +181,18 @@
 			isa = PBXGroup;
 			children = (
 				E241FB782992A75600076F3A /* User.swift */,
-				E241FB7A2992A89D00076F3A /* File.swift */,
 				E241FB7C2992A91E00076F3A /* ConferenceViewModel.swift */,
+				E241FB7E2992AA1600076F3A /* Cafe.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		E241FB772992A72100076F3A /* ViewModel */ = {
+		E241FB802992AB1D00076F3A /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E241FB812992AB3300076F3A /* ConferenceService.swift */,
 			);
-			path = ViewModel;
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,11 +356,12 @@
 				AF541A85297ED54B0016C429 /* ListView.swift in Sources */,
 				AF541A89297ED5880016C429 /* MainView.swift in Sources */,
 				AF541A8B297EDE1C0016C429 /* RowView.swift in Sources */,
+				E241FB822992AB3300076F3A /* ConferenceService.swift in Sources */,
 				AF541A6F297ED4C30016C429 /* ContentView.swift in Sources */,
 				AF541A87297ED5640016C429 /* ProfileView.swift in Sources */,
-				E241FB7B2992A89D00076F3A /* File.swift in Sources */,
 				E241FB792992A75600076F3A /* User.swift in Sources */,
 				AF541A83297ED53D0016C429 /* MapView.swift in Sources */,
+				E241FB7F2992AA1600076F3A /* Cafe.swift in Sources */,
 				AF2C755229928F090056A435 /* SheetView.swift in Sources */,
 				E241FB7D2992A91E00076F3A /* ConferenceViewModel.swift in Sources */,
 				AF541A6D297ED4C30016C429 /* ProjetApp.swift in Sources */,
