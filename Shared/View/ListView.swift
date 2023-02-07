@@ -8,16 +8,24 @@
 import SwiftUI
 
 struct ListView: View {
+    
+    @State private var showingSheet = false
+    
     var body: some View {
-        
+        /*Button("Show Sheet") {
+         showingSheet.toggle()
+         }
+         .sheet(isPresented: $showingSheet) {
+         SheetView()
+         }*/
         NavigationView {
-            Form{
+            List{
                 ForEach(1..<15) { i in
                     RowView()
                 }
             }.navigationTitle("Restaurants")
+            .navigationBarItems(trailing: Button("Filter by",action: {}))
         }
-        
     }
 }
 
