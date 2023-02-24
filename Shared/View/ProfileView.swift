@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ProfileView: View {
     
+    @StateObject var viewModel = ConferenceViewModel()
+    
     @State var firstName: String = ""
     @State var lastName: String = ""
     @State var age: String = ""
@@ -26,6 +28,7 @@ struct ProfileView: View {
                 }
                 Button {
                     showAlert = true
+                    viewModel.addUser(lastname: lastName, firstname: firstName, age: age, bio: bio)
                 } label: {
                     Text("Save")
                         .frame(width: 280, height: 40)

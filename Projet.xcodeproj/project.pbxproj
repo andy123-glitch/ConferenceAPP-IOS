@@ -25,8 +25,8 @@
 		AF541A8B297EDE1C0016C429 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF541A8A297EDE1C0016C429 /* RowView.swift */; };
 		E241FB792992A75600076F3A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E241FB782992A75600076F3A /* User.swift */; };
 		E241FB7D2992A91E00076F3A /* ConferenceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E241FB7C2992A91E00076F3A /* ConferenceViewModel.swift */; };
-		E241FB7F2992AA1600076F3A /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E241FB7E2992AA1600076F3A /* Cafe.swift */; };
 		E241FB822992AB3300076F3A /* ConferenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E241FB812992AB3300076F3A /* ConferenceService.swift */; };
+		E2B3E3A529A3A8E90021434F /* Cafe.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B3E3A429A3A8E90021434F /* Cafe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,8 +67,9 @@
 		AF541A8A297EDE1C0016C429 /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
 		E241FB782992A75600076F3A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E241FB7C2992A91E00076F3A /* ConferenceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceViewModel.swift; sourceTree = "<group>"; };
-		E241FB7E2992AA1600076F3A /* Cafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cafe.swift; sourceTree = "<group>"; };
 		E241FB812992AB3300076F3A /* ConferenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConferenceService.swift; sourceTree = "<group>"; };
+		E2B3E3A429A3A8E90021434F /* Cafe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cafe.swift; sourceTree = "<group>"; };
+		E2B3E3A629A3B6A60021434F /* Projet--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Projet--iOS--Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +107,7 @@
 		AF541A3F297ED4BF0016C429 = {
 			isa = PBXGroup;
 			children = (
+				E2B3E3A629A3B6A60021434F /* Projet--iOS--Info.plist */,
 				AF541A44297ED4BF0016C429 /* Shared */,
 				AF541A53297ED4C30016C429 /* macOS */,
 				AF541A5C297ED4C30016C429 /* Tests iOS */,
@@ -182,7 +184,7 @@
 			children = (
 				E241FB782992A75600076F3A /* User.swift */,
 				E241FB7C2992A91E00076F3A /* ConferenceViewModel.swift */,
-				E241FB7E2992AA1600076F3A /* Cafe.swift */,
+				E2B3E3A429A3A8E90021434F /* Cafe.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -361,7 +363,7 @@
 				AF541A87297ED5640016C429 /* ProfileView.swift in Sources */,
 				E241FB792992A75600076F3A /* User.swift in Sources */,
 				AF541A83297ED53D0016C429 /* MapView.swift in Sources */,
-				E241FB7F2992AA1600076F3A /* Cafe.swift in Sources */,
+				E2B3E3A529A3A8E90021434F /* Cafe.swift in Sources */,
 				AF2C755229928F090056A435 /* SheetView.swift in Sources */,
 				E241FB7D2992A91E00076F3A /* ConferenceViewModel.swift in Sources */,
 				AF541A6D297ED4C30016C429 /* ProjetApp.swift in Sources */,
@@ -531,6 +533,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Projet--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -560,6 +563,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Projet--iOS--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -12,26 +12,71 @@ class ConferenceViewModel: ObservableObject {
     enum State {
         case notAvailable
         case loading
-        case success(data: [Cafe])
+        case success(data: CafeResponse)
+        case failed(error: Error)
+    }
+    
+    enum CafeDataState {
+        case notAvailable
+        case loading
+        case success(data: Cafe)
+        case failed(error: Error)
+    }
+    
+    enum UsersInCafeState {
+        case notAvailable
+        case loading
+        case success(data: UserResponse)
         case failed(error: Error)
     }
     
     @Published var state:State = .notAvailable
-    @Published var dataState:State = .notAvailable
+    @Published var dataState:CafeDataState = .notAvailable
+    @Published var usersCafeState:UsersInCafeState = .notAvailable
     @Published var hasError: Bool = false
     
     private let service = ConferenceService() // A MODIFIER
     
-    func getCafes(from username: String) async {
+    func getCafes() async {
         self.state = .loading
         self.hasError = false
         do {
-            let followers = try await service.fetchFollowers(for: username)
-            self.state = .success(data: followers)
+            let cafes = try await service.fetchCafes()
+            self.state = .success(data: cafes)
         } catch {
             self.state = .failed(error : error)
             self.hasError = true
             print(error)
         }
+    }
+    
+    func getCafeData(from id: String) async {
+        self.dataState = .loading
+        self.hasError = false
+        do {
+            let cafe = try await service.fetchCafeData(for: id)
+            self.dataState = .success(data: cafe)
+        } catch {
+            self.dataState = .failed(error: error)
+            self.hasError = true
+            print(error)
+        }
+    }
+    
+    func getUsersInCafe(from cafeId: String) async {
+        self.usersCafeState = .loading
+        self.hasError = false
+        do {
+            let users = try await service.fetchUsersInCafe(for: cafeId)
+            self.usersCafeState = .success(data: users)
+        } catch {
+            self.usersCafeState = .failed(error: error)
+            self.hasError = true
+            print(error)
+        }
+    }
+    
+    func addUser(lastname:String, firstname:String, age:String, bio:String) {
+        service.addUser(lastname: lastname, firstname: firstname, age: age, bio: bio)
     }
 }

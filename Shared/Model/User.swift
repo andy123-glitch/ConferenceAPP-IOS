@@ -6,11 +6,15 @@
 //
 
 import Foundation
-struct User: Decodable{
-    var id:Int
+struct User: Decodable, Hashable, Identifiable{
+    var id:String
     var firstname:String
     var lastname: String
-    var age: Int
+    var age: String
     var bio: String
-    var locationID: Int
+    var locationID: String
+}
+
+struct UserResponse: Decodable {
+    var records: [User]
 }

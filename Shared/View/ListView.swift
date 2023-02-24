@@ -9,22 +9,37 @@ import SwiftUI
 
 struct ListView: View {
     
+    @StateObject var viewModel = ConferenceViewModel()
+    
     @State private var showingSheet = false
+    @State var cafeId =  ""
     
     var body: some View {
-        /*Button("Show Sheet") {
-         showingSheet.toggle()
-         }
-         .sheet(isPresented: $showingSheet) {
-         SheetView()
-         }*/
-        NavigationView {
-            List{
-                ForEach(1..<15) { i in
-                    RowView()
+        VStack {
+            switch viewModel.state {
+            case .success(let cafes):
+                NavigationView {
+                    List{
+                        ForEach(cafes.records, id: \.self) { cafe in
+                            RowView(cafe: cafe)
+                                .onTapGesture {
+                                    cafeId = cafe.id
+                                    showingSheet.toggle()
+                                }
+                        } .sheet(isPresented: $showingSheet) {
+                            SheetView(cafeId: cafeId)
+                        }
+                    }.navigationTitle("Restaurants")
+                    .navigationBarItems(trailing: Button("Filter by",action: {}))
                 }
-            }.navigationTitle("Restaurants")
-            .navigationBarItems(trailing: Button("Filter by",action: {}))
+            case .loading:
+                ProgressView()
+            default:
+                EmptyView()
+            }
+        }
+        .task {
+            await viewModel.getCafes()
         }
     }
 }

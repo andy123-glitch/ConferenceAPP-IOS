@@ -8,26 +8,26 @@
 import SwiftUI
 
 struct RowView: View {
+    var cafe: Cafe
     var body: some View {
         HStack {
-            Image("imgtest")
-                .resizable()
-                .scaledToFit()
-                .frame(height: 90)
-                .cornerRadius(8)
+            AsyncImage(url: cafe.imageurl) { image in
+                image
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 90)
+                    .cornerRadius(8)
+            } placeholder: {
+                ProgressView()
+            }
+                
             
             VStack(alignment: .leading, spacing: 5) {
-                Text("Le bistro - 23,6 km")    
-                Text("25 participants")
+                Text(cafe.name)
+                Text(cafe.address)
             }
             Spacer()
         }
     }
 }
 
-
-struct RowView_Previews: PreviewProvider {
-    static var previews: some View {
-        RowView()
-    }
-}
