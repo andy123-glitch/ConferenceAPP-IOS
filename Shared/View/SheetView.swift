@@ -44,11 +44,12 @@ struct SheetView: View {
                             }.padding(.leading,40)
                             Spacer()
                         }.padding()
-                        
                         VStack{
                             Text("Infos de la conference")
                             Text(String(nUsers) + " participants")
-                            Button{}label: {
+                            Button{
+                                
+                            }label: {
                                 Text("Check in / Check out")
                             }.buttonStyle(.borderedProminent)
                                 .padding()
@@ -93,7 +94,6 @@ struct SheetView: View {
                 EmptyView()
             }
         }
-        .padding(.top, 20)
         .task {
             await viewModel.getCafeData(from: cafeId)
                     

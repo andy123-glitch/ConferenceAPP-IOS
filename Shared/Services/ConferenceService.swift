@@ -29,6 +29,20 @@ struct ConferenceService {
         return decodedData
     }
     
+    func fetchUsers() async throws -> UserResponse {
+        let baseURL = "http://www-etu.iut-bm.univ-fcomte.fr/~vmarcha5/api/user/read.php"
+        guard let url = URL(string: baseURL) else {
+            throw ConferenceError.invalidUserName
+        }
+        let (data, response) = try await URLSession.shared.data(from: url)
+        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
+            throw ConferenceError.invalidStatusCode
+        }
+        let decoder = JSONDecoder()
+        let decodedData = try decoder.decode(UserResponse.self, from: data)
+        return decodedData
+    }
+    
     func fetchCafeData(for id: String) async throws -> Cafe {
         let baseURL = "http://www-etu.iut-bm.univ-fcomte.fr/~vmarcha5/api/cafe/read_one.php?id=\(id)"
         guard let url = URL(string: baseURL) else {
@@ -57,9 +71,12 @@ struct ConferenceService {
         return decodedData
     }
     
+
+    
     func addUser(lastname:String, firstname:String, age:String, bio:String) {
         guard let url = URL(string: "http://www-etu.iut-bm.univ-fcomte.fr/~vmarcha5/api/user/create.php") else { return }
-        let body = "lastname=\(lastname)&firstname=\(firstname)&age=\(age)&bio=\(bio)"
+        let body = "{\"lastname\":\"\(lastname)\",\"firstname\":\"\(firstname)\",\"age\":\(age),\"bio\":\"\(bio)\"}"
+        print(body)
         let finalBody = body.data(using: .utf8)
         
         var request = URLRequest(url: url)
@@ -80,4 +97,5 @@ struct ConferenceService {
                     
                 }.resume()
     }
+
 }

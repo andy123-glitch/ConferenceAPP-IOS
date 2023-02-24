@@ -22,7 +22,7 @@ struct MapView: View {
         VStack {
             switch viewModel.state {
             case .success(let cafes):
-                Map(coordinateRegion: $region ,showsUserLocation: true,
+                Map(coordinateRegion: $region ,
                     annotationItems: cafes.records, annotationContent: { cafe in
                     MapAnnotation(coordinate: cafe.coordinate){
                         Circle().onTapGesture(perform: {

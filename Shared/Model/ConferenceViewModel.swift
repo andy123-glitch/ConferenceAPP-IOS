@@ -22,6 +22,12 @@ class ConferenceViewModel: ObservableObject {
         case success(data: Cafe)
         case failed(error: Error)
     }
+    enum UserDataState {
+        case notAvailable
+        case loading
+        case success(data: UserResponse)
+        case failed(error: Error)
+    }
     
     enum UsersInCafeState {
         case notAvailable
@@ -30,10 +36,13 @@ class ConferenceViewModel: ObservableObject {
         case failed(error: Error)
     }
     
+    
+    
     @Published var state:State = .notAvailable
     @Published var dataState:CafeDataState = .notAvailable
     @Published var usersCafeState:UsersInCafeState = .notAvailable
     @Published var hasError: Bool = false
+    @Published var usersDataState:UserDataState = .notAvailable
     
     private let service = ConferenceService() // A MODIFIER
     
@@ -45,6 +54,19 @@ class ConferenceViewModel: ObservableObject {
             self.state = .success(data: cafes)
         } catch {
             self.state = .failed(error : error)
+            self.hasError = true
+            print(error)
+        }
+    }
+    
+    func getUsers() async {
+        self.usersDataState = .loading
+        self.hasError = false
+        do {
+            let users = try await service.fetchUsers()
+            self.usersDataState = .success(data: users)
+        } catch {
+            self.usersDataState = .failed(error : error)
             self.hasError = true
             print(error)
         }
@@ -79,4 +101,5 @@ class ConferenceViewModel: ObservableObject {
     func addUser(lastname:String, firstname:String, age:String, bio:String) {
         service.addUser(lastname: lastname, firstname: firstname, age: age, bio: bio)
     }
+    
 }
