@@ -24,9 +24,16 @@ struct MapView: View {
             case .success(let cafes):
                 Map(coordinateRegion: $region ,showsUserLocation: true,
                     annotationItems: cafes.records, annotationContent: { cafe in
-                    MapPin(coordinate: cafe.coordinate, tint: .red)
+                    MapAnnotation(coordinate: cafe.coordinate){
+                        Circle().onTapGesture(perform: {
+                            cafeId = cafe.id
+                            showingSheet.toggle()
+                        })
+                    }
                                               
-                })
+                }).sheet(isPresented: $showingSheet) {
+                    SheetView(cafeId: cafeId)
+                }
                         .ignoresSafeArea()
             case .loading:
                 ProgressView()
