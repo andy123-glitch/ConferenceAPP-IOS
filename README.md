@@ -1,3 +1,4 @@
+# ConferenceAPP-IOS
 Le but était de créer une application IOS où on peut voir les participants de la conférence et dans quel café ils se situent. Un bouton nommé "check in/out" serait présent pour indiquer dans quel café l'utilisateur serait présent.
 
 Pour faire cela, on a utilisé des Macbook avec Xcode et swiftui.
